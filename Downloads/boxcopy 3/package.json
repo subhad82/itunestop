@@ -1,0 +1,30 @@
+{
+  "name": "box",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/subhad82/uiRouter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/subhad82/uiRouter/issues"
+  },
+  "homepage": "https://github.com/subhad82/uiRouter#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "dependencies": {
+    "bower": "^1.8.4",
+    "gulp-clean": "^0.4.0",
+    "gulp-connect": "^5.5.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-uglify": "^3.0.0"
+  }
+}
