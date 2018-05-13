@@ -1,50 +1,60 @@
-<header>
-
+<header class="text-center">
+    <a id="header_logo" href="{{rSongs.feed.author.uri.label}}" target="_blank">{{rSongs.feed.author.name.label}}</a>
 </header>
 <div ng-controller="HomeCtrl">
 
 
     <div class="container">
-
         <div class="row">
-            <input class="search_input" ng-model="search" ng-show = "IsVisible" type="text">
-            <md-button class="no-margin-left md-raised" ng-click="ShowHide()">Search</md-button>
-        </div>
-        <div class="m-t-2 row song-li" ng-repeat="song in rSongs.feed.entry | filter : search">
 
-            <div class="col-md-3">
+            <div class="col-md-1"></div>
 
 
-                <div class="display_pic"><a href="{{song.link.attributes.href}}" target="_blank"><img src="{{song['im:image'][2]['label']}}" /></a></div>
+            <div class="col-md-10 ">
 
-              
+                <div class="row">
+                    <input placeholder="search by name , album , artsit" class="search_input" ng-model="search" ng-show="IsVisible" type="text">
+                    <md-button class="no-margin-left md-raised green" ng-click="ShowHide()">Search</md-button>
+                </div>
+                <div class="m-t-1 row song-li" ng-repeat="song in rSongs.feed.entry | filter : search">
+
+                    <div class="col-md-3">
+
+
+                        <div class="display_pic text-center-sm"><a class="external_link" href="{{song.link.attributes.href}}" target="_blank"><img src="{{song['im:image'][2]['label']}}" /></a></div>
+
+
+                    </div>
+                    <div class="col-md-5">
+                        <div>
+                            <p>Track: <a id="external_link" href="{{song.link.attributes.href}}" target="_blank">{{song['im:name']['label']  }}</a> </p>
+                        </div>
+                        <div>
+                            <p>Price: {{song['im:price']['label']}}</p>
+                        </div>
+                        <div>
+                            <p>Artists: <a id="external_link" href="{{song['im:artist']['attributes']['href']}}" target="_blank">{{song['im:artist']['label'] | limitTo : 40 }}</a> </p>
+                        </div>
+                        <div>
+                            <p>Category:
+                                <a class="category" href="{{song.category.attributes.scheme}}" target="_blank">{{song.category.attributes.label}}</a>
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <div>
+                            <p>Release Date :{{song['im:releaseDate']['attributes']['label']}}</p>
+                            <p>Rights: <small>{{song.rights.label}}</small> </p>
+                        </div>
+                        <div>
+                            <div><span class="small_display_pic1"><img src="{{song['im:image'][0]['label']}}" /></span> <span class="small_display_pic2"><img src="{{song['im:image'][1]['label']}}"  /></span></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-5">
-                <div>
-                    <p>Track: <a href="{{song.link.attributes.href}}" target="_blank">{{song['im:name']['label']}}</a> </p>
-                </div>
-                <div>
-                    <p>Price: {{song['im:price']['label']}}</p>
-                </div>
-                <div>
-                    <p>Artists: <a href="{{song['im:artist']['attributes']['href']}}" target="_blank">{{song['im:artist']['label']}}</a> </p>
-                </div>
-  <div>
-                    <p>Category:
-                        <a class="category" href="{{song.category.attributes.scheme}}" target="_blank">{{song.category.attributes.label}}</a>
-                    </p>
-                </div>
 
-            </div>
-            <div class="col-md-4">
-                <div>
-                    <p>ReleaseDate :{{song['im:releaseDate']['attributes']['label']}}</p>
-                    <p>Rights: <small>{{song.rights.label}}</small> </p>
-                </div>
-                <div>
-                    <div><span class="small_display_pic1"><img src="{{song['im:image'][0]['label']}}" /></span> <span class="small_display_pic2"><img src="{{song['im:image'][1]['label']}}"  /></span></div>
-                </div>
-            </div>
+            <div class="col-md-1"></div>
         </div>
 
     </div>
